@@ -17,12 +17,12 @@ func (e *Order) Call(ctx context.Context, req *order.Request, rsp *order.Respons
 	//rsp.Msg = "Hello " + req.Name
 	orderObj := &model.Order{}
 	orderObj.ID = req.Id
-	res, err := orderObj.GetOrderInfo()
+	err := orderObj.GetOrderInfo()
 	if err != nil {
 		return err
 	}
-	rsp.User = res.Username
-	rsp.Goods = res.Goods
+	rsp.User = orderObj.UserName
+	rsp.Goods = orderObj.Goods
 	return nil
 }
 

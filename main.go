@@ -25,6 +25,7 @@ func main() {
 	service := micro.NewService(
 		micro.Name("go.micro.service.order"),
 		micro.Version("latest"),
+		micro.Registry(etcdReg),
 	)
 
 	// Initialise service
